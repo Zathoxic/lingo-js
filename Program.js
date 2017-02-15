@@ -1,73 +1,91 @@
 var gRandomNumber = Math.floor(Math.random() * words.length);
 var gAnswer = words[gRandomNumber]; //The word you have to guess
-var gLetter = gAnswer.split(""); //The first letter of the word you have to guess
-var gInput = document.getElementById('UserInput').value;
+var gLetters = gAnswer.split(""); //The first letter of the word you have to guess
 var gSubmits = 5;
 var gDelay = 100;
-
-//Now you only have to type "_" instead of "document.getElementById"
-function _(x) {
-    return document.getElementById(x);
-}
+var gRows = 1;
+var gPos = 1;
+var gStartingPos = 1;
+var gAttempts = 1;
+var gClicks = document.getElementsByTagName('input' [0]);
 
 //Detects "Enter" keypress
 document.onkeydown = function () {
     if (window.event.keyCode == '13') {
-        CheckInput();
+        checkInput();
     }
 }
 
-function StartGame() {
-    _("Guess").innerHTML = gSubmits + " attempts left.";
-    _("1_1").innerHTML = gLetter[0];
-    var inputLetter = gInput.split("");
-    if (gLetter[0] == inputLetter[0]) {
-        _("Mssg").innerHTML = "You've got the first letter right!";
-    }
-    if (gLetter[1] == inputLetter[1]) {
-        _("Mssg").innerHTML = "You've got the second letter right!";
-    }
+
+function startGame() {
+    var userInput = document.getElementById('UserInput').value;
+    document.getElementById("Attempts").innerHTML = gSubmits + " attempts left.";
+    document.getElementById("1_1").innerHTML = gLetters[0];
+    var inputLetters = userInput.split("");
 }
 
 //Reloads game
-function RestartGame() {
+function restartGame() {
     location.reload();
 }
 
-function CheckInput() {
-    var check = _("UserInput").value;
-    console.log(check);
-    gSubmits--;
-    if (check.length !== 5) {
-        alert("Please enter at least 5 characters!");
+function checkInput() {
+    moveDown();
+
+    var checkInput = document.getElementById("UserInput").value;
+    var inputArray = checkInput.split("");
+    for (i = 0; i < inputArray.length; i++) {
+        //good
+        if (inputArray[i] == gLetters[i]) {
+
+            //Contains
+        } else if (inputArray[i] !== gLetters[i]) {
+
+            //Wrong
+        } else {
+
+        }
+    }
+    if (checkInput.length == 5) {
+        gSubmits--;
+    }
+    if (checkInput.length !== 5) {
+        alert("Please enter at 5 characters!");
     } else {
-        _("Guess").innerHTML = gSubmits + " attempts left.";
-        if (gSubmits < 1) {
-            _("container").innerHTML = "<h1 class='GameOver'>GAME OVER!</h1>";
-            _("msgBox").innerHTML = "";
-            _("smallMsg").innerHTML = "";
+        document.getElementById("Attempts").innerHTML = gSubmits + " attempts left.";
+        if (document.getElementById("UserInput").value == gAnswer) {
+            document.getElementById("container").innerHTML = "<h1 class='GameOver'>Congratulations! You won</h1>";
+            document.getElementById("msgBox").innerHTML = "";
+            document.getElementById("smallMsg").innerHTML = "";
             $("button").toggleClass("invisible");
         }
     }
+    if (gSubmits < 1) {
+        document.getElementById("container").innerHTML = "<h1 class='GameOver'>BIEEEMMMM you're ded!</h1>";
+        document.getElementById("msgBox").innerHTML = "";
+        document.getElementById("smallMsg").innerHTML = "";
+        $("button").toggleClass("invisible");
+    }
 }
 
-function Tiles() {
-    var Row1 = _("row1");
-    var Row2 = _("row2");
-    var Row3 = _("row3");
-    var Row4 = _("row4");
-    var Row5 = _("row5");
-
-    var Row1Content = Row1._("1_1").value;
-    console.log(Row1Content);
+function moveDown() {
+    var userInput = document.getElementById('UserInput').value;
+    var inputArray = userInput.split("");
+    var curRow = document.getElementById("row" + gAttempts);
+    console.log("Checking gAttempts: " + gAttempts);
+    console.log("Checking userInput: " + userInput);
+    console.log("Checking inputArray: " + inputArray);
+    if (gAttempts <= 4 && checkInput.length !== 5) {
+        //ROW 1
+        gClicks.onclick = gAttempts++;
+        gClicks.onclick = gRows++;
+        var curRow = document.getElementById("row" + gAttempts);
+        document.getElementById(gRows + "_1").innerHTML = gLetters[0];
+    }
 }
 
-StartGame();
+startGame();
 
-console.log(gAnswer); //The word you have to guess
-console.log(gLetter[0]); //The first letter of the word you have to guess
-console.log(gLetter[1]); //The second letter of the word you have to guess
-console.log(gLetter[2]); //The third letter of the word you have to guess
-console.log(gLetter[3]); //The fourth letter of the word you have to guess
-console.log(gLetter[4]); //The fifth letter of the word you have to guess
-console.log(gInput);
+
+console.log("Checking gAnswer: " + gAnswer);
+console.log("Checking gLetters: " + gLetters);
