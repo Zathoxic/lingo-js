@@ -2,57 +2,75 @@
 
 <head>
     <link rel="stylesheet" href="Style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="words-nl.js" type="text/javascript"></script>
+    <script src="generateGrid.js"></script>
 </head>
 
 
-<body>
+<body onload="generateGrid()">
     <div id='msgBox'>Guess the word!</div>
     <div id="smallMsg">Green = correct letter, Yellow = wrong place</div>
-    <div id="container">
-        <div id="Game">
-            <div id="row1">
-                <div class="square default" id="1_1"></div>
-                <div class="square default" id="1_2"></div>
-                <div class="square default" id="1_3"></div>
-                <div class="square default" id="1_4"></div>
-                <div class="square default" id="1_5"></div>
-            </div>
-            <div id="row2">
-                <div class="square default" id="2_1"></div>
-                <div class="square default" id="2_2"></div>
-                <div class="square default" id="2_3"></div>
-                <div class="square default" id="2_4"></div>
-                <div class="square default" id="2_5"></div>
-            </div>
-            <div id="row3">
-                <div class="square default" id="3_1"></div>
-                <div class="square default" id="3_2"></div>
-                <div class="square default" id="3_3"></div>
-                <div class="square default" id="3_4"></div>
-                <div class="square default" id="3_5"></div>
-            </div>
-            <div id="row4">
-                <div class="square default" id="4_1"></div>
-                <div class="square default" id="4_2"></div>
-                <div class="square default" id="4_3"></div>
-                <div class="square default" id="4_4"></div>
-                <div class="square default" id="4_5"></div>
-            </div>
-            <div id="row5">
-                <div class="square default" id="5_1"></div>
-                <div class="square default" id="5_2"></div>
-                <div class="square default" id="5_3"></div>
-                <div class="square default" id="5_4"></div>
-                <div class="square default" id="5_5"></div>
-            </div>
-            <input id="UserInput" placeholder='Type your guess!'>
-            <p id="Attempts"></p>
-            <button id="Checker" type="submit" onclick="checkInput()">SUBMIT</button>
-        </div>
+    <div id="Selection">
+        <form action="">
+            <input id="radio0" onclick="" type="radio" name="rows" value="5 rows" checked><label for="5Rows">5 rows</label>
+            <br/>
+            <input id="radio1" onclick="" type="radio" name="rows" value="6 rows"><label for="6Rows">6 rows</label>
+            <br/>
+            <input id="radio2" onclick="" type="radio" name="rows" value="7 rows"><label for="7Rows">7 rows</label>
+            <br/>
+            <input id="radio3" onclick="" type="radio" name="rows" value="8 rows"><label for="8Rows">8 rows</label>
+            <br/>
+        </form>
     </div>
-    <button class="invisible" type="button" id="Restart" onClick="restartGame()">Restart</button>
+    <div id="container">
+        <div id="Circle">
+            <div id="Game">
+                <div id="row1">
+                    <div class="square default" id="1_0"></div>
+                    <div class="square default" id="1_1"></div>
+                    <div class="square default" id="1_2"></div>
+                    <div class="square default" id="1_3"></div>
+                    <div class="square default" id="1_4"></div>
+                </div>
+                <div id="row2">
+                    <div class="square default" id="2_0"></div>
+                    <div class="square default" id="2_1"></div>
+                    <div class="square default" id="2_2"></div>
+                    <div class="square default" id="2_3"></div>
+                    <div class="square default" id="2_4"></div>
+                </div>
+                <div id="row3">
+                    <div class="square default" id="3_0"></div>
+                    <div class="square default" id="3_1"></div>
+                    <div class="square default" id="3_2"></div>
+                    <div class="square default" id="3_3"></div>
+                    <div class="square default" id="3_4"></div>
+                </div>
+                <div id="row4">
+                    <div class="square default" id="4_0"></div>
+                    <div class="square default" id="4_1"></div>
+                    <div class="square default" id="4_2"></div>
+                    <div class="square default" id="4_3"></div>
+                    <div class="square default" id="4_4"></div>
+                </div>
+                <div id="row5">
+                    <div class="square default" id="5_0"></div>
+                    <div class="square default" id="5_1"></div>
+                    <div class="square default" id="5_2"></div>
+                    <div class="square default" id="5_3"></div>
+                    <div class="square default" id="5_4"></div>
+                </div>
+                <input id="UserInput" placeholder='Type your guess!'>
+                <p id="Attempts"></p>
+                <button id="Checker" type="submit" onclick="checkInput()">SUBMIT</button>
+            </div>
+
+            <button class="invisible" type="button" id="Restart" onClick="restartGame()">Restart</button>
+        </div>
+
+    </div>
     <script src="Program.js" type="text/javascript"></script>
 </body>
 

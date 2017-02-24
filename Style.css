@@ -1,9 +1,10 @@
 body {
-    background: white;
+    background-color: #af3535;
 }
 
 * {
     box-sizing: border-box;
+    color: white;
 }
 
 .invisible {
@@ -25,7 +26,7 @@ button {
 #msgBox {
     text-align: center;
     font-size: 3.5em;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Arial';
     margin: 0.1em 0em;
 }
 
@@ -33,6 +34,7 @@ button {
     text-align: center;
     padding: 0px 0px 10px 0px;
     font-size: 1.1em;
+    font-family: 'Arial', sans-serif;
 }
 
 #UserInput {
@@ -41,12 +43,6 @@ button {
     float: right;
     clear: right;
     margin-top: 10px;
-}
-
-#container {
-    margin-left: auto;
-    width: 80%;
-    margin-right: auto;
 }
 
 .correct {
@@ -58,7 +54,8 @@ button {
 }
 
 .default {
-    background: #3cbbe6;
+    background: rgba(175, 53, 53, 0.52);
+    border-radius: 15%;
 }
 
 .square {
@@ -78,9 +75,21 @@ button {
     font-size: 72px;
     font-family: monospace;
     text-align: center;
-    width: 970px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 450px;
+    margin-top: -50px;
+    color: white;
+    margin-left: -40px;
+    line-height: 270px;
+}
+
+.YouWon {
+    font-size: 72px;
+    font-family: monospace;
+    text-align: center;
+    width: 430px;
+    margin-top: -50px;
+    color: white;
+    margin-left: -40px;
 }
 
 #Guess {
@@ -98,10 +107,53 @@ button {
     font-size: 20px;
     padding: 10px 15px;
     clear: both;
+    border-radius: 50px;
+}
+
+#container {
+    margin-left: auto;
+    width: 80%;
+    margin-right: auto;
 }
 
 #Game {
     width: 341px;
     margin-left: auto;
     margin-right: auto;
+}
+
+#Circle {
+    width: 650px;
+    height: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(49, 46, 101, 0.38);
+    border-radius: 5%;
+    padding: 100px;
+    box-shadow: inset 0px 0px 70px rgba(0, 0, 0, 0.7);
+}
+
+#Restart {
+    margin-left: 170px;
+    margin-top: -60px;
+}
+
+#Attempts {
+    width: 150px;
+    background-color: white;
+    padding: 4px;
+    margin-top: 10px;
+    border: 1px solid black;
+}
+
+#Selection{
+  width: 75px;
+  float:left;
+  margin-top: -100px;
+  font-family: 'Arial', sans-serif;
+}
+
+input[type="radio"] {
+    float: left;
+    clear: both;
 }
