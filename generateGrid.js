@@ -3,21 +3,19 @@ function generateGrid() {
   var colsels = document.getElementById("radio" + addCols);
   var cols = 5;
   var radios = 3;
-  var content = document.getElementById('row" + (gRows + 1) + "');
   var table = document.getElementById('Circle');
   var clearTable = document.getElementById("Circle").innerHTML = "";
 
   document.getElementById('radio0').onclick = function click() {
     cols = 5;
     console.log("Checking cols: " + cols);
-    table.innerHTML = "<div id='row" + (gRows + 1) + "'>";
-    for (i = 0; i < gRows; i++) {
-      content.innerHTML = "<div id='row" + gRows + "'></div>";
-      console.log(content);
-    }
-
+    //create a new row
     for (i = 0; i < 5; i++) {
-      document.getElementById(content).innerHTML += "<div class='square default' id=" + gRows + "_" + i + "></div>";
+      table.innerHTML += "<div id='row" + (gRows + 1) + "'>";
+    }
+    //create the display blocks that will contain the letters
+    for (i = 0; i < 5; i++) {
+      document.getElementById('row' + (gRows + 1) + '').innerHTML += "<div class='square default' id='" + gRows + "_" + i + "'></div>";
     }
     console.log("Checking i in loop: " + i);
     //if(){
