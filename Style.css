@@ -16,6 +16,7 @@ body {
 }
 
 button {
+    color: black;
     margin: auto;
     background: white;
     border: 1px solid black;
@@ -43,6 +44,7 @@ button {
     float: right;
     clear: right;
     margin-top: 10px;
+    color: black;
 }
 
 .correct {
@@ -116,7 +118,7 @@ button {
 }
 
 #Game {
-    width: 341px;
+    width: 366px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -143,6 +145,7 @@ button {
     padding: 4px;
     margin-top: 10px;
     border: 1px solid black;
+    color: black;
 }
 
 #Selection{
@@ -156,7 +159,7 @@ input[type="radio"] {
     float: left;
     clear: both;
 }
-
+/*
 #row1 {
     width: 352px;
     height: 70px;
@@ -165,3 +168,4 @@ input[type="radio"] {
     margin-left: auto;
     margin-right: auto;
 }
+*/
